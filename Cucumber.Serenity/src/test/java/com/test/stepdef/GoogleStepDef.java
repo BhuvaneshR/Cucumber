@@ -15,7 +15,8 @@ public class GoogleStepDef {
 		WebDriver driver = new ChromeDriver();
 		driver.get(string);
 		driver.manage().window().maximize();
-		System.out.println("Google.com launched successfully");
+		driver.quit();
+		System.out.println("Google.com launched");
 
 	}
 
