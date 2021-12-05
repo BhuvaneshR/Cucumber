@@ -7,9 +7,10 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(monochrome=true,
-features="src/test/resources/features"
-,glue="com.test.stepdef"
-,tags="@Google")
+features="src/test/resources/features",
+glue="com.test.stepdef",
+dryRun=true
+)
 public class TestRunner1 {
 
 }
