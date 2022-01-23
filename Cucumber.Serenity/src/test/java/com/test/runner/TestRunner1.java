@@ -9,7 +9,8 @@ import net.serenitybdd.cucumber.CucumberWithSerenity;
 @CucumberOptions(monochrome=true,
 features="src/test/resources/features",
 glue="com.test.stepdef",
-dryRun=true
+//plugin= {"pretty"},
+tags="@getList"
 )
 public class TestRunner1 {
 

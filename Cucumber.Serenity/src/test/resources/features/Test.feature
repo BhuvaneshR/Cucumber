@@ -11,3 +11,4 @@ Feature: To launch google.com using selenium
     Examples: 
       | URL                     | Name              |
       | https://www.google.com/ | Bhuvanesh Ravilla |
+      | https://www.google.com/ | i      |
