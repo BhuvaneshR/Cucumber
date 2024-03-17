@@ -2,18 +2,18 @@ package com.test.utilities;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class CreateDriver {
-	
-	public static WebDriver createDriverInstance()
-	{
-		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/Fiserv_User_333330/git/Cucumber.Serenity/drivers/chromedriver_96.0.4664.45/chromedriver.exe");
-
-		WebDriver driver = new ChromeDriver();
-//		@SuppressWarnings("deprecation")
-//		WebDriverWait wait=new WebDriverWait(driver,10);
+	private static WebDriver driver;
+	public static WebDriver setDriver(){
+		if(driver == null) {
+			System.setProperty("webdriver.chrome.driver", "/Users/rbhuvanesh/IdeaProjects/Cucumber/drivers/chromedriver_122/chromedriver");
+			ChromeOptions co = new ChromeOptions();
+			co.setBinary("/Users/rbhuvanesh/Documents/ChromeDriver/chrome/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing");
+			driver = new ChromeDriver();
+		}
 		return driver;
 	}
 
