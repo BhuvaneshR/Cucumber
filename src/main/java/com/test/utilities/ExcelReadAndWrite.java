@@ -14,7 +14,7 @@ public class ExcelReadAndWrite {
 	public static String getDataFromXLSXFile(String sheetName, String Key) throws IOException
 	{
 		
-		FileInputStream fis=new FileInputStream("C:\\Users\\Fiserv_User_333330\\git\\Cucumber.Serenity\\testdata\\TestData.xlsx");
+		FileInputStream fis=new FileInputStream("/Users/rbhuvanesh/IdeaProjects/Cucumber/testdata/TestData.xlsx");
 		wb=new XSSFWorkbook(fis);
 		sheet=wb.getSheet(sheetName);
 		int totalRows=getPhysicalNumberOfRows(sheet);
@@ -47,7 +47,7 @@ public class ExcelReadAndWrite {
 	}
 	public static void main(String args[]) throws IOException
 	{
-		FileInputStream fis=new FileInputStream("C:\\Users\\Fiserv_User_333330\\git\\Cucumber.Serenity\\testdata\\TestData.xlsx");
+		FileInputStream fis=new FileInputStream("/Users/rbhuvanesh/IdeaProjects/Cucumber/testdata/TestData.xlsx");
 		wb=new XSSFWorkbook(fis);
 		sheet=wb.getSheet("Google");
 		System.out.println(getDataFromXLSXFile("Google","GoogleURL"));
