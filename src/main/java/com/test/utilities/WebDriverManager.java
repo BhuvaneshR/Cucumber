@@ -33,7 +33,7 @@ public class WebDriverManager {
 		if(driver!=null)
 		{
 			driver.quit();
-			logger.info("The driver has been quit.");
+			logger.info("The driver has been quit");
 			driver=null;
 		}
 	}
