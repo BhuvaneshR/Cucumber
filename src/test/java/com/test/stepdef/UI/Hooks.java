@@ -1,35 +1,24 @@
 package com.test.stepdef.UI;
 
-import com.test.utilities.CreateDriver;
-import io.cucumber.junit.Cucumber;
-import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
+import com.test.utilities.WebDriverManager;
+import io.cucumber.java.*;
 
 import com.test.utilities.BasePageObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-
-@RunWith(Cucumber.class)
 public class Hooks extends BasePageObject {
 
-    private static WebDriver driver;
-
+    private static Logger logger= LoggerFactory.getLogger(Hooks.class);
     @Before("@UITest")
-    public void initDriver()
+    public static void setUp(Scenario scenario)
     {
-        System.out.println("Reached Before in Hooks");
-        CreateDriver driverObj=new CreateDriver();
-        driver=driverObj.setDriver();
+        logger.info("Reached Before in Hooks");
+        WebDriverManager.getDriver();
     }
     @After("@UITest")
-    public void closeDriver() {
-        System.out.println("Reached After in Hooks");
-        getDriver().quit();
+    public static void tearDown(Scenario scenario) {
+        logger.info("Reached After in Hooks");
+        WebDriverManager.quitDriver();
     }
-
-    public static WebDriver getDriver() {
-        return driver;
-    }
-
 }

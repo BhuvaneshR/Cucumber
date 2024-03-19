@@ -9,9 +9,10 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         monochrome=true,
         features="src/test/resources/features",
-        glue="com.test.stepdef.API",
-        plugin= {"pretty","html:target/cucumber-reports"}
-//tags="@getList"
+        glue="com.test.stepdef",
+        plugin= {"pretty","html:target/cucumber-reports.html"} //This generates HTMl report of the Test Execution
+        //plugin= {"pretty","json:target/cucumber-reports.json"} //This generates json report of the Test Execution
+        ,tags="@APITest"
 )
 public class TestRunner1 {
 
