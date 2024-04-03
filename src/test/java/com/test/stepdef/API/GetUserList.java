@@ -1,13 +1,16 @@
 package com.test.stepdef.API;
 
+import com.test.stepdef.UI.Hooks;
 import io.cucumber.java.en.*;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static io.restassured.RestAssured.*;
 
 public class GetUserList {
-
+	private static final Logger logger= LoggerFactory.getLogger(GetUserList.class);
 	@Given("user creates the request")
 	public void user_creates_the_request() {
 
