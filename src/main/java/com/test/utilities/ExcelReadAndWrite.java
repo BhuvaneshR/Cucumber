@@ -13,8 +13,8 @@ public class ExcelReadAndWrite {
 	private static XSSFRow row;
 	public static String getDataFromXLSXFile(String sheetName, String Key) throws IOException
 	{
-		
-		FileInputStream fis=new FileInputStream("/Users/rbhuvanesh/IdeaProjects/Cucumber/testdata/TestData.xlsx");
+		String userPath=System.getProperty("user.dir");
+		FileInputStream fis=new FileInputStream(userPath+"/testdata/TestData.xlsx");
 		wb=new XSSFWorkbook(fis);
 		sheet=wb.getSheet(sheetName);
 		int totalRows=getPhysicalNumberOfRows(sheet);
@@ -37,20 +37,10 @@ public class ExcelReadAndWrite {
 	}
 	public static int getPhysicalNumberOfRows(XSSFSheet sheet)
 	{
-		int intRow=sheet.getPhysicalNumberOfRows();
-		return intRow;
+		return sheet.getPhysicalNumberOfRows();
 	}
 	public static int getPhysicalNumberofcolumn(XSSFSheet sheet,int i)
 	{
-		int noOfColumns = sheet.getRow(i).getLastCellNum();
-		return noOfColumns;
+		return sheet.getRow(i).getLastCellNum();
 	}
-	public static void main(String args[]) throws IOException
-	{
-		FileInputStream fis=new FileInputStream("/Users/rbhuvanesh/IdeaProjects/Cucumber/testdata/TestData.xlsx");
-		wb=new XSSFWorkbook(fis);
-		sheet=wb.getSheet("Google");
-		System.out.println(getDataFromXLSXFile("Google","GoogleURL"));
-	}
-
 }

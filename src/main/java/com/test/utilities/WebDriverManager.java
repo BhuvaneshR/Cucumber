@@ -7,23 +7,30 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
+
 public class WebDriverManager {
-	private static WebDriver driver;
-	private static Logger logger= LoggerFactory.getLogger(WebDriverManager.class);
+	private static WebDriver driver=null;
+	private static final Logger logger= LoggerFactory.getLogger(WebDriverManager.class);
 
 	public static void initializeDriver(){
-		if(driver == null) {
-			System.setProperty("webdriver.chrome.driver", "/Users/rbhuvanesh/IdeaProjects/Cucumber/drivers/chromedriver_122/chromedriver");
-//			ChromeOptions co = new ChromeOptions();
-//			co.setBinary("/Users/rbhuvanesh/Documents/ChromeDriver/chrome/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing");
+		String browserName=Config.getConfigProperty("Browser");
+		if(driver == null && browserName.equals("Chrome")) {
+			String userPath=System.getProperty("user.dir");
+			System.setProperty("webdriver.chrome.driver", userPath+"/drivers/chromedriver_122/chromedriver");
 			driver = new ChromeDriver();
-			logger.info("The driver has been initiated.");
+			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20)); // This is the old syntax before Selenium 4.0 --> driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			logger.info("The chrome driver has been initiated.");
 		}
 	}
 	public static WebDriver getDriver(){
 		if(driver==null)
 		{
 			initializeDriver();
+		}
+		else
+		{
+			logger.info("Driver is already been instantiated, only returning the driver instance now");
 		}
 		return driver;
 	}
