@@ -39,5 +39,10 @@ public class BasePageObject {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
 		wait.until(ExpectedConditions.visibilityOf(locator));
 	}
+	public static void waitForPageToLoad(WebDriver driver)
+	{
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete';"));
+	}
 
 }
