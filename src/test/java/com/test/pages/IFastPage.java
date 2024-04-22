@@ -7,11 +7,11 @@ import org.openqa.selenium.support.FindBy;
 public interface IFastPage {
 
 
-    WebElement searchBar = null;
-    WebElement searchButton = null;
+    WebElement speedMessage = null;
+    WebElement speedValue = null;
 
 
-    public void sendKeystoSearchBar(String input);
-    public void clickSearchBtn();
+    void waitForSpeedAnalysisCompletion();
+    void logSpeed();
 
 }

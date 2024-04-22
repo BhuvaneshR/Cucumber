@@ -9,15 +9,15 @@ import org.slf4j.LoggerFactory;
 
 public class Hooks extends BasePageObject {
 
-    private static Logger logger= LoggerFactory.getLogger(Hooks.class);
+    private static final Logger logger= LoggerFactory.getLogger(Hooks.class);
     @Before("@UITest")
-    public static void setUp(Scenario scenario)
+    public static void setUp()
     {
         logger.info("Reached Before in Hooks");
         WebDriverManager.getDriver();
     }
     @After("@UITest")
-    public static void tearDown(Scenario scenario) {
+    public static void tearDown() {
         logger.info("Reached After in Hooks");
         WebDriverManager.quitDriver();
     }
