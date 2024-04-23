@@ -11,22 +11,22 @@ import io.cucumber.java.en.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SeleniumChallengesStepDef extends BasePageObject {
-    private static final Logger logger= LoggerFactory.getLogger(SeleniumChallengesStepDef.class);
-    IFastPage gpage;
+public class SeleniumChallenge1StepDef extends BasePageObject {
+    private static final Logger logger= LoggerFactory.getLogger(SeleniumChallenge1StepDef.class);
+    IFastPage fpage;
     WebDriver driver;
 
     @Given("user launches {string}")
     public void user_launches(String URL) {
         driver = WebDriverManager.getDriver();
         getURL(driver,URL);
-        gpage = new FastPageImpl(driver);
+        fpage = new FastPageImpl(driver);
     }
 
     @When("user checks for internet speed")
     public void user_enters_his_name() {
-        gpage.waitForSpeedAnalysisCompletion();
-        gpage.logSpeed();
+        fpage.waitForSpeedAnalysisCompletion();
+        fpage.logSpeed();
     }
 
 
