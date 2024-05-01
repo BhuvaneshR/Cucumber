@@ -12,7 +12,7 @@ import io.cucumber.junit.CucumberOptions;
         glue="com.test.stepdef",
         plugin= {"pretty","html:target/cucumber-reports.html"} //This generates HTMl report of the Test Execution
         //plugin= {"pretty","json:target/cucumber-reports.json"} //This generates json report of the Test Execution
-        ,tags="@APITest"
+        ,tags="@Challenge1"
 )
 public class TestRunner1 {
 
