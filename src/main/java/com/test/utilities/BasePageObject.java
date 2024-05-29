@@ -34,7 +34,7 @@ public class BasePageObject {
 	{
 		driver.manage().deleteAllCookies();
 	}
-	public static void waitForElementToBeVisible(WebDriver driver, WebElement locator, int timeOutInSeconds)
+	public static void waitForElementToBeVisible(WebDriver driver,WebElement locator, int timeOutInSeconds)
 	{
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(timeOutInSeconds));
 		wait.until(ExpectedConditions.visibilityOf(locator));
@@ -44,5 +44,25 @@ public class BasePageObject {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.jsReturnsValue("return document.readyState === 'complete';"));
 	}
+	public static Set<String> getAllWindowHandles(WebDriver driver)
+	{
+		String parentWindowHandle= driver.getWindowHandle();
+		Set<String>	allWindowHandles= driver.getWindowHandles();
+		return allWindowHandles;
+	}
+	public static void switchToWindowWithTitle(Set<String> allWindows, WebDriver driver, String pageTitle)
+	{
+		for(String window:allWindows)
+		{
+			driver.switchTo().window(window);
+			if (driver.getTitle().equals(pageTitle))
+			{
+				logger.info("Switched to Provided Window");
+				break;
+			}
+		}
+	}
+
+
 
 }

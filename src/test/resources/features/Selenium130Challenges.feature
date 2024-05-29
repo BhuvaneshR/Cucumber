@@ -27,3 +27,21 @@ Feature: To automate 130 challenges in Selenium using Java and Cucumber
     Examples:
       | URL                   |
       | https://www.linkedin.com/ |
+
+  @Challenge4 @Challenge5 @UITest
+  Scenario Outline: Create a script to handle browser windows and pop-ups in Selenium & Write a script to perform mouse hover actions on a web element using Selenium
+    Given user launches "<URL>"
+    And logs in with "<UserName>" and "<Password>"
+    When User expand the User dropdown and clicks on Developer console
+    And Switch to the new window
+    And click on Help Docs
+    And Switch to the new tab
+    Then Verify the login button visibility
+    When hover on login button
+    Then verify the text on the hover
+    And Switch back to the New Window to close it
+    And Navigate back to Parent window
+
+    Examples:
+      | URL                   |UserName |Password
+      | https://login.salesforce.com/ |slekkala@int.com |Welcome1234|
