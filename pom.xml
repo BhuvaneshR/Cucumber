@@ -11,7 +11,7 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<seleniumVerison>4.18.1</seleniumVerison>
-		<poiVersion>3.9</poiVersion>
+		<poiVersion>5.4.0</poiVersion>
 		<restAssuredVersion>4.5.0</restAssuredVersion>
 		<cucumberVersion>7.15.0</cucumberVersion>
 		<slf4j.version>2.0.12</slf4j.version>
